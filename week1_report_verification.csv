@@ -1,0 +1,24 @@
+Finding,Reported,Computed,Status
+Delivered orders (count),96470,96470,MATCH
+Delivered+reviewed orders (count),95824,95824,MATCH
+Mean review score,4.16,4.156,MATCH
+Low-rating rate (1-2 star) %,12.8,12.807,MATCH
+1-star rate %,9.8,9.759,MATCH
+5-star rate %,59.2,59.221,MATCH
+4-5 star rate %,78.9,78.932,MATCH
+Late-delivery rate %,8.1,7.995,MATCH
+"Low-rating rate, LATE orders %",54.1,54.066,MATCH
+"Low-rating rate, ON-TIME orders %",9.2,9.222,MATCH
+"Correlation(delay_vs_estimate, score)",-0.267,-0.267,MATCH
+Top 10 categories share of orders %,63.9,63.927,MATCH
+Sellers for 50% volume,131,131,MATCH
+Sellers for 80% volume,541,541,MATCH
+SP share of orders %,42.0,41.981,MATCH
+Top 5 states share %,77.2,77.175,MATCH
+office_furniture low-rating rate %,21.8,21.845,MATCH
+bed_bath_table low-rating rate %,15.7,15.73,MATCH
+Top 50 sellers' share of low ratings %,37.5,37.524,MATCH
+Top 100 sellers' share of low ratings %,49.8,49.772,MATCH
+"Corr(seller volume, low-rating rate)",0.053,0.053,MATCH
+High-volume/high-risk sellers (count),119,119,MATCH
+Cross-state orders share %,64.0,64.322,MATCH

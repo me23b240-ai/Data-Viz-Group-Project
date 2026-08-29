@@ -1,0 +1,5 @@
+failure_type,n_sellers,total_orders,total_low_rating_orders,share_of_hr_unhappy_customers
+Type 1 - Delivery-Driven,44,8591,1477.0,35.4
+Type 2 - Intrinsic,27,4118,806.0,19.3
+Type 3 - Mixed,36,5380,1371.0,32.9
+Type 4 - Unclear,12,3245,516.0,12.4

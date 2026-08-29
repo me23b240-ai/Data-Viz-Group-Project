@@ -1,0 +1,5 @@
+priority_group,n_states,total_orders,total_low_rating_orders,share_of_marketplace_low_rating
+High Scale + High Risk,5,20261,3511.0,28.609843546284225
+High Scale + Low Risk,7,69312,7784.0,63.428943937418516
+Low Scale + High Risk,7,4055,701.0,5.712190352020861
+Low Scale + Low Risk,4,1865,235.0,1.9149282920469362

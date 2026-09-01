@@ -35,6 +35,7 @@ The deeper structural insight: root cause heterogeneity increases the further do
 Olist style relational Brazilian e-commerce dataset, nine linked tables (orders, order items, customers, sellers, products, category translations, payments, reviews, geolocation), covering 99,441 orders from September 2016 to October 2018. A supplementary Marketing Funnel dataset was evaluated and deliberately excluded from the core analysis due to limited overlap with active sellers (see technical report, Section 2).
 
 ## Project Structure
+```
 Data-Viz-Group-Project/
 ├── data/
 │   ├── raw/                  # Original Olist and Marketing Funnel CSVs
@@ -48,6 +49,7 @@ Data-Viz-Group-Project/
 │   └── config.toml            # Dashboard theme configuration
 ├── requirements.txt
 └── README.md
+```
 
 ## Methodology Summary
 

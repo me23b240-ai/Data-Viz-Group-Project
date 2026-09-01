@@ -37,23 +37,17 @@ Olist style relational Brazilian e-commerce dataset, nine linked tables (orders,
 ## Project Structure
 Data-Viz-Group-Project/
 ├── data/
-│ ├── raw/ # Original Olist and Marketing Funnel CSVs
-│ └── processed/ # Analytical tables produced by the notebooks
-│
-├── notebooks/ # Week 1 and Week 2 analysis notebooks
-│
+│   ├── raw/                  # Original Olist and Marketing Funnel CSVs
+│   └── processed/            # Analytical tables produced by the notebooks
+├── notebooks/                # Week 1 and Week 2 analysis notebooks
 ├── dashboard/
-│ ├── app.py # Streamlit dashboard source
-│ └── style.py # Dashboard design system (colors, fonts, components)
-│
-├── report/ # Technical report (LaTeX source and compiled PDF)
-│
+│   ├── app.py                # Streamlit dashboard source
+│   └── style.py               # Dashboard design system (colors, fonts, components)
+├── report/                   # Technical report (LaTeX source and compiled PDF)
 ├── .streamlit/
-│ └── config.toml # Dashboard theme configuration
-│
+│   └── config.toml            # Dashboard theme configuration
 ├── requirements.txt
 └── README.md
-
 
 ## Methodology Summary
 

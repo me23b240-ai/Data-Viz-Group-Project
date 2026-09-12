@@ -240,11 +240,43 @@ elif page == "Geographic & Operational Risk":
     st.subheader("Business impact by geographic priority group")
     st.dataframe(data["geo_priority"], use_container_width=True)
 
-    st.subheader("RJ + office_furniture: a compounding risk")
-    rj_of = master[(master["customer_state"] == "RJ") & (master["product_category_name_english"] == "office_furniture")]
-    rj_of_reviewed = rj_of.dropna(subset=["review_score"])
-    if len(rj_of_reviewed):
+    st.markdown("---")
+    st.subheader("Compounding risk: pick a state + category")
+    st.caption("Uses the full dataset directly — independent of the sidebar filters, "
+               "so the precomputed rate thresholds in the CSVs stay intact.")
+
+    states_list = sorted(master["customer_state"].dropna().unique())
+    cats_list = sorted(master["product_category_name_english"].dropna().unique())
+
+    sc1, sc2 = st.columns(2)
+    with sc1:
+        pick_state = st.selectbox(
+            "State", states_list,
+            index=states_list.index("RJ") if "RJ" in states_list else 0
+        )
+    with sc2:
+        pick_cat = st.selectbox(
+            "Category", cats_list,
+            index=cats_list.index("office_furniture") if "office_furniture" in cats_list else 0
+        )
+
+    combo = master[(master["customer_state"] == pick_state) &
+                   (master["product_category_name_english"] == pick_cat)]
+    combo_reviewed = combo.dropna(subset=["review_score"])
+
+    if len(combo_reviewed) == 0:
+        st.info(f"No reviewed orders for {pick_cat} in {pick_state} — try another combination.")
+    else:
         c1, c2, c3 = st.columns(3)
-        with c1: kpi_card("RJ Overall Low-Rating", f"{sr.loc[sr['customer_state']=='RJ','low_rating_rate'].values[0]*100:.1f}%")
-        with c2: kpi_card("office_furniture Overall Low-Rating", f"{data['cat_risk'].loc[data['cat_risk']['product_category_name_english']=='office_furniture','low_rating_rate'].values[0]*100:.1f}%")
-        with c3: kpi_card("RJ + office_furniture Combined", f"{rj_of_reviewed['is_low_rating'].mean()*100:.1f}%", tone="bad")
+        state_row = sr.loc[sr["customer_state"] == pick_state, "low_rating_rate"]
+        cat_row = data["cat_risk"].loc[
+            data["cat_risk"]["product_category_name_english"] == pick_cat, "low_rating_rate"]
+        with c1:
+            kpi_card(f"{pick_state} Overall Low-Rating",
+                      f"{state_row.values[0]*100:.1f}%" if len(state_row) else "—")
+        with c2:
+            kpi_card(f"{pick_cat} Overall Low-Rating",
+                      f"{cat_row.values[0]*100:.1f}%" if len(cat_row) else "—")
+        with c3:
+            kpi_card(f"{pick_state} + {pick_cat} Combined",
+                      f"{combo_reviewed['is_low_rating'].mean()*100:.1f}%", tone="bad")
